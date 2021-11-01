@@ -2,7 +2,6 @@ import { useMemo } from "react";
 import { Title, Picture, Loading } from "..";
 import { useFetch } from "../../utils/hooks/useFetch";
 import { Background } from "./Content.styles";
-import { mockData } from "../../mockData";
 
 export const Content = ({ date }) => {
   const queryParams = useMemo(
@@ -14,15 +13,15 @@ export const Content = ({ date }) => {
   );
 
   const { data, loading } = useFetch(`https://api.nasa.gov/planetary/apod`, queryParams);
-  // const data = mockData;
+  const { title, url } = data ? data : { title: "", url: "" };
 
   return loading ? (
     <Loading />
   ) : (
     <>
-      <Background src={data.url} />
-      <Title text={data.title} />
-      <Picture src={data.url} />
+      <Background src={url} />
+      <Title text={title} />
+      <Picture src={url} />
     </>
   );
 };

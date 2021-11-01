@@ -4,7 +4,7 @@ import { Container, TitleText } from "./Title.styles";
 export const Title = ({ text }) => {
   return (
     <Container>
-      <TitleText>{text}</TitleText>
+      <TitleText data-testid="title">{text}</TitleText>
     </Container>
   );
 };

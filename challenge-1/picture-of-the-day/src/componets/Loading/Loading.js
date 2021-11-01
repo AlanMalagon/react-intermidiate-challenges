@@ -3,7 +3,7 @@ import { Container, Dot, Spinner } from "./Loading.styles";
 
 export const Loading = () => {
   return (
-    <Container>
+    <Container data-testid="spinner">
       <Spinner>
         <Dot id="dot1" />
         <Dot id="dot2" />
