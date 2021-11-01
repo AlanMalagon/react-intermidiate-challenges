@@ -16,17 +16,6 @@ export const Container = styled.main`
   }
 `;
 
-export const Background = styled.div`
-  background-color: slateblue;
-  background-image: url(${({ src }) => src});
-  background-position: center;
-  background-size: cover;
-  filter: blur(10px);
-  height: 100%;
-  left: 0;
-  position: fixed;
-  transform: scale(1.1);
-  top: 0;
-  width: 100%;
-  z-index: -1;
+export const SubtitleText = styled.h1`
+  font-size: 25px;
 `;

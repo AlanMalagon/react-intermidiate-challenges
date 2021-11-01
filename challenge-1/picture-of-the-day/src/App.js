@@ -1,12 +1,10 @@
 import { useState } from "react";
-import { DatePicker, Picture, Title } from "./componets";
-import { formatDate } from "./utils/utils";
-import { Background, Container } from "./App.styles";
+import { DatePicker, Content } from "./componets";
+import { getTodayDate } from "./utils/utils";
+import { Container, SubtitleText } from "./App.styles";
 
 function App() {
-  const text = "Dark Matter in a Simulated Universe";
-  const src = "https://images5.alphacoders.com/100/1000730.png";
-  const [date, setDate] = useState(formatDate(new Date()));
+  const [date, setDate] = useState(getTodayDate());
 
   const handleOnChange = ({ target: { value } }) => {
     setDate(value);
@@ -14,10 +12,9 @@ function App() {
 
   return (
     <Container>
-      <Background src={src} />
-      <Title text={text} />
+      <SubtitleText>NASA: Picture of the day</SubtitleText>
       <DatePicker date={date} onChange={handleOnChange} />
-      <Picture src={src} />
+      <Content date={date} />
     </Container>
   );
 }
