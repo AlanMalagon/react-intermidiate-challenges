@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { DatePicker, Content } from "./componets";
+import { getTodayDate } from "./utils/utils";
+import { Container, SubtitleText } from "./App.styles";
 
 function App() {
+  const [date, setDate] = useState(getTodayDate());
+
+  const handleOnChange = ({ target: { value } }) => {
+    setDate(value);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <SubtitleText>NASA: Picture of the day</SubtitleText>
+      <DatePicker date={date} onChange={handleOnChange} />
+      <Content date={date} />
+    </Container>
   );
 }
 
